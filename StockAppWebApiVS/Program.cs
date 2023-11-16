@@ -20,11 +20,13 @@ builder.Services.AddDbContext<StockAppContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IWatchListRepository, WatchListRepository>();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
+builder.Services.AddScoped<IQuoteRepository, QuoteRepository>();
 
 // Add Service
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IWatchListService, WatchListService>();
 builder.Services.AddScoped<IStockService, StockService>();
+builder.Services.AddScoped<IQuoteService, QuoteService>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -56,5 +58,12 @@ app.UseAuthorization();
 app.UseAuthentication();
 
 app.MapControllers();
+
+var webSocketOptions = new WebSocketOptions
+{
+    KeepAliveInterval = TimeSpan.FromSeconds(2),
+};
+
+app.UseWebSockets(webSocketOptions);
 
 app.Run();
