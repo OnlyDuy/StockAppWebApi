@@ -10,6 +10,6 @@ namespace StockAppWebApiVS.Services
             int limit,
             string sector,
             string industry);
-        //Task<List<Quote>> GetHistoricalQuotes(int days, int stockId);
+        Task<List<Quote>> GetHistoricalQuotes(int days, int stockId);
     }
 }
