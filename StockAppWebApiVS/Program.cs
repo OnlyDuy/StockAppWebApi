@@ -21,12 +21,14 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IWatchListRepository, WatchListRepository>();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<IQuoteRepository, QuoteRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 // Add Service
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IWatchListService, WatchListService>();
 builder.Services.AddScoped<IStockService, StockService>();
 builder.Services.AddScoped<IQuoteService, QuoteService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

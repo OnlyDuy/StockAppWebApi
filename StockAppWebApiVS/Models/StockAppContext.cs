@@ -13,6 +13,8 @@ namespace StockAppWebApiVS.Models
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<RealtimeQuote> RealtimeQuotes { get; set; }
         public DbSet<Quote> Quotes { get; set; }
+        public DbSet<Order> Orders { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,6 +22,8 @@ namespace StockAppWebApiVS.Models
             modelBuilder.Entity<WatchList>()
                 // Khóa chính của bảng WatchList
                 .HasKey(w => new { w.UserId, w.StockId});
+            modelBuilder.Entity<Order>()
+                .ToTable(table => table.HasTrigger("trigger_orders"));
         }
 
     }
