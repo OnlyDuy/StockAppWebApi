@@ -14,6 +14,8 @@ namespace StockAppWebApiVS.Models
         public DbSet<RealtimeQuote> RealtimeQuotes { get; set; }
         public DbSet<Quote> Quotes { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<CoveredWarrant> CoveredWarrants { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
